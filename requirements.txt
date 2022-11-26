@@ -13,3 +13,4 @@ sqlalchemy
 pyodbc
 pymysql
 tableauserverclient
+psycopg2

@@ -43,7 +43,7 @@ def haversine(lon1, lat1, lon2, lat2):
 
 def load_data():
     encoder = preprocessing.LabelEncoder()
-    df = pd.read_excel("dataset_1.4_7_MZ.xlsx")
+    df = pd.read_excel("dataset_1.4_7_MZ-pub.xlsx")
     df["Jarak"] = df.apply(lambda row : haversine(row["Lng_Ktr"], row["Lat_Ktr"],row["Lng_Dms"], row["Lat_Dms"]), axis=1)
     df.Jenis_Kelamin = encoder.fit_transform(df.Jenis_Kelamin.fillna('0'))
     df = df[['Resign', 'Lama_Pada_Kantor_Terakhir', 'Lama_Pada_Regional_Terakhir', 'Jml_Pindah_Kantor', 

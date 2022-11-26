@@ -8,3 +8,7 @@ joblib==0.16.0
 scikit-learn
 xlrd
 openpyxl
+sqlalchemy
+pyodbc
+pymysql
+tableauserverclient

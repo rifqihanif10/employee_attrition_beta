@@ -47,7 +47,7 @@ def haversine(lon1, lat1, lon2, lat2):
     return c * r
 
 # Membuat koneksi ke database
-engine = sa.create_engine('postgresql+psycopg2://st.secrets.postgresql.username:st.secrets.postgresql.password@st.secrets.postgresql.server/st.secrets.postgresql.username.database')
+engine = sa.create_engine('postgresql+psycopg2://st.secrets.postgresql.username:st.secrets.postgresql.password@st.secrets.postgresql.server/st.secrets.postgresql.database')
 
 def load_data():
     encoder = preprocessing.LabelEncoder()

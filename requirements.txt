@@ -13,7 +13,7 @@ sqlalchemy
 pyodbc
 pymysql
 tableauserverclient
-psycopg2-binary
+psycopg2-binary==2.9.5
 xlsxwriter
 plotly
 plotly_express

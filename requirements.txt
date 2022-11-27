@@ -14,3 +14,4 @@ pyodbc
 pymysql
 tableauserverclient
 psycopg2-binary
+xlsxwriter

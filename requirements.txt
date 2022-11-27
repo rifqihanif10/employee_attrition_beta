@@ -16,3 +16,5 @@ tableauserverclient
 psycopg2-binary
 xlsxwriter
 plotly
+plotly_express
+imblearn

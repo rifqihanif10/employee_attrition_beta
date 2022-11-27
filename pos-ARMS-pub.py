@@ -20,38 +20,6 @@ import pymysql
 from imblearn.over_sampling import SMOTE
 import plotly.express as px
 
-def check_password():
-    """Returns `True` if the user had the correct password."""
-
-    def password_entered():
-        """Checks whether a password entered by the user is correct."""
-        if st.session_state["password"] == st.secrets.password.password:
-            st.session_state["password_correct"] = True
-            del st.session_state["password"]  # don't store password
-        else:
-            st.session_state["password_correct"] = False
-
-    if "password_correct" not in st.session_state:
-        # First run, show input for password.
-        st.text_input(
-            "Password", type="password", on_change=password_entered, key="password"
-        )
-        return False
-    elif not st.session_state["password_correct"]:
-        # Password not correct, show input + error.
-        st.text_input(
-            "Password", type="password", on_change=password_entered, key="password"
-        )
-        st.error("😕 Password salah")
-        return False
-    else:
-        # Password correct.
-        return True
-
-if check_password():
-    st.write("Selamat datang di aplikasi Pos A.R.M.S...")
-    st.button("Click me")
-
 data_multi = []
 
 def load_model():
@@ -318,4 +286,38 @@ def halaman_utama():
         global data_multi
         halaman_multi()
 
-halaman_utama()
+def check_password():
+    """Returns `True` if the user had the correct password."""
+
+    def password_entered():
+        """Checks whether a password entered by the user is correct."""
+        if st.session_state["password"] == st.secrets.password.password:
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]  # don't store password
+        else:
+            st.session_state["password_correct"] = False
+
+    if "password_correct" not in st.session_state:
+        # First run, show input for password.
+        st.text_input(
+            "Password", type="password", on_change=password_entered, key="password"
+        )
+        return False
+    elif not st.session_state["password_correct"]:
+        # Password not correct, show input + error.
+        st.text_input(
+            "Password", type="password", on_change=password_entered, key="password"
+        )
+        st.error("😕 Password salah")
+        return False
+    else:
+        # Password correct.
+        return True
+
+if check_password():
+    st.write("Selamat datang di aplikasi Pos A.R.M.S...")
+    gas = st.button("Click me")
+
+if gas:
+    halaman_utama()
+

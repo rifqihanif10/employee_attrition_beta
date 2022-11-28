@@ -47,12 +47,12 @@ def haversine(lon1, lat1, lon2, lat2):
     return c * r
 
 # Membuat koneksi ke database
-engine = sa.create_engine('postgresql://st.secrets.db_pos.username:st.secrets.db_pos.password@10.32.41.137/st.secrets.db_pos.database')
+# engine = sa.create_engine('postgresql://st.secrets.db_pos.username:st.secrets.db_pos.password@10.32.41.137/st.secrets.db_pos.database')
 
 def load_data():
     encoder = preprocessing.LabelEncoder()
-    df = pd.read_sql_query('SELECT * FROM "arms_data"', engine.connect())
-#     df = pd.read_excel("dataset_1.4_7_MZ.xlsx")
+#     df = pd.read_sql_query('SELECT * FROM "arms_data"', engine.connect())
+    df = pd.read_excel("dataset_1.4_7_MZ.xlsx")
     df["Jarak"] = df.apply(lambda row : haversine(row["Lng_Ktr"], row["Lat_Ktr"],row["Lng_Dms"], row["Lat_Dms"]), axis=1)
     df.Jenis_Kelamin = encoder.fit_transform(df.Jenis_Kelamin.fillna('0'))
     df = df[['Resign', 'Lama_Pada_Kantor_Terakhir', 'Lama_Pada_Regional_Terakhir', 'Jml_Pindah_Kantor', 

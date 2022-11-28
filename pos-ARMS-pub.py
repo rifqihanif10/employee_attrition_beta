@@ -315,9 +315,6 @@ def check_password():
         return True
 
 if check_password():
-    st.write("Selamat datang di aplikasi Pos A.R.M.S...")
-    gas = st.button("Click me")
-
-if gas:
     halaman_utama()
+    
 
